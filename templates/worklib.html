@@ -1,0 +1,846 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Workout Library </title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Sailor
+  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="services-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <img src="{% static 'assets/img/logo.jpg' %}" alt="">
+
+            <h1 class="sitename">FitGuru</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="{% url 'home' %}" >Home</a></li>
+                <li class="dropdown"><a href="{% url 'about' %}"><span>About</span> </a>
+                    
+                </li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'worklib' %}" class="active">Workout Library</a></li>
+                <li><a href="{% url 'getyourplan' %}">Get Your Plan</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-getstarted" href="{% url 'login' %}">Login</a>
+
+    </div>
+</header>
+
+  <main class="main">
+
+    <header id="header" class="page-title light-background">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    
+          <a href="{% url 'worklib' %}" class="logo d-flex align-items-center me-auto">
+
+            <h1 class="mb-2 mb-lg-0">Workout Library</h1>          </a>
+    
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="#chestlib">Chest</a></li>
+              <li><a href="#triceplib">Tricep</a></li>
+              <li><a href="#shoulderlib">Shoulder</a></li>
+              <li><a href="#backlib">Back</a></li>
+              <li><a href="#biceplib">Biceps</a></li>
+              <li><a href="#leglib">Leg</a></li>
+              <li><a href="#abslib">Abs</a></li>
+              <li><a href="#yogalib">Yoga</a></li>
+
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>     
+        </div>
+      </header>
+
+    {% comment %} <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Workout Library</h1>
+        <!-- <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Services</li>
+          </ol>
+        </nav> -->
+      </div>
+    </div><!-- End Page Title --> {% endcomment %}
+
+    <section id="chestlib" class="workout selection">
+      <div class="container section-title" data-aos="fade-up">
+          <h2>Available Workout Library</h2>
+          <p>Chest Workout<br></p>
+      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\chest/chestbbp.gif' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              {% comment %} <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> {% endcomment %}
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\chest/chestd.gif' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\chest/chestdbp.gif' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\chest/chestdp.gif' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="card">
+              <img src="{% static 'assets\workoutlib\chest/chestdpo.gif' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="{% static 'assets\workoutlib\chest/chestf.gif' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="{% static 'assets\workoutlib\chest/chestibp.gif' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+              <div class="card">
+                <img src="{% static 'assets\workoutlib\chest/Chestmcp.gif' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="{% static 'assets\workoutlib\chest/chestmf.gif' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                  <img src="{% static 'assets\workoutlib\chest/chestpu.gif' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                </div>
+              </div>
+
+      </div>
+
+  </section>
+  <!-- /Services Section -->
+
+  <section id="triceplib" class="workout selection">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Available Workout Library</h2>
+        <p>Triceps Workout<br></p>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Triceps/tricepsbd.gif' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Triceps/tricepscgbp.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Triceps/tricepscgpu.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Triceps/tricepscoewr.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\Triceps/tricepscpd.gif' %}" class="card-img-top" alt="...">
+            
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\Triceps/tricepsdote.gif' %}" class="card-img-top" alt="...">
+            
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\Triceps/tricepss.gif' %}" class="card-img-top" alt="...">
+            
+          </div>
+        </div>
+        <div class="col">
+            <div class="card">
+              <img src="{% static 'assets\workoutlib\Triceps/tricepssackb.gif' %}" class="card-img-top" alt="...">
+              
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <img src="{% static 'assets\workoutlib\Triceps/tricepstd.gif' %}" class="card-img-top" alt="...">
+              
+            </div>
+          </div>
+          <div class="col">
+              <div class="card">
+                <img src="{% static 'assets\workoutlib\Triceps/tricepstmd.gif' %}" class="card-img-top" alt="...">
+               
+              </div>
+            </div>
+
+    </div>
+
+</section>
+
+<section id="shoulderlib" class="workout selection">
+  <div class="container section-title" data-aos="fade-up">
+      <h2>Available Workout Library</h2>
+      <p>Shoulder Workout<br></p>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\Shoulder/shoulderbodlr.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\Shoulder/shoulderbosp.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\Shoulder/shouldercfp.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\Shoulder/shoulderdlr.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Shoulder/shoulderdosp.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Shoulder/shoulderfr.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Shoulder/shoulderoaclr.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\Shoulder/shoulderrcc.gif' %}" class="card-img-top" alt="...">
+            
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\Shoulder/shoulderrpdf.gif' %}" class="card-img-top" alt="...">
+            
+          </div>
+        </div>
+        <div class="col">
+            <div class="card">
+              <img src="{% static 'assets\workoutlib\Shoulder/shoulderbodlr.gif' %}" class="card-img-top" alt="...">
+              
+            </div>
+          </div>
+
+  </div>
+
+</section>
+
+<section id="backlib" class="workout selection">
+  <div class="container section-title" data-aos="fade-up">
+      <h2>Available Workout Library</h2>
+      <p>Back Workout<br></p>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\back/backboor.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\back/backcsr.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\back/backdl.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\back/backdpo.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\back/backlpd.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\back/backpu.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\back/backsadr.gif' %}" class="card-img-top" alt="...">
+
+        </div>
+      </div>
+      <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\back/backsasmr.gif' %}" class="card-img-top" alt="...">
+            
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\back/backsr.gif' %}" class="card-img-top" alt="...">
+            
+          </div>
+        </div>
+        <div class="col">
+            <div class="card">
+              <img src="{% static 'assets\workoutlib\back/backtbr.gif' %}" class="card-img-top" alt="...">
+              
+            </div>
+          </div>
+
+  </div>
+
+</section>
+
+<section id="biceplib" class="workout selection">
+  <div class="container section-title" data-aos="fade-up">
+      <h2>Available Workout Library</h2>
+      <p>Biceps Workout<br></p>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepscc.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepscon.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepscu.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepsdc.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Biceps/bicepsdrc.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Biceps/bicepsez.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Biceps/bicepshc.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\Biceps/Bicepsic.gif' %}" class="card-img-top" alt="...">
+            
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\Biceps/bicepspc.gif' %}" class="card-img-top" alt="...">
+            
+          </div>
+        </div>
+        <div class="col">
+            <div class="card">
+              <img src="{% static 'assets\workoutlib\Biceps/bicepsrgbr.gif' %}" class="card-img-top" alt="...">
+              
+            </div>
+          </div>
+
+  </div>
+
+</section>
+
+<section id="leglib" class="workout selection">
+  <div class="container section-title" data-aos="fade-up">
+      <h2>Available Workout Library</h2>
+      <p>Legs Workout<br></p>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\legs/legsbbs.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\legs/legsbfs.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\legs/legsdl.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\legs/legshs.gif' %}" class="card-img-top" alt="...">
+        
+      </div>
+    </div>
+    <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\legs/legslc.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\legs/legslp.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\legs/legsol.gif' %}" class="card-img-top" alt="...">
+          
+        </div>
+      </div>
+      <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\legs/legsrd.gif' %}" class="card-img-top" alt="...">
+            
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\legs/legsss.gif' %}" class="card-img-top" alt="...">
+            
+          </div>
+        </div>
+        <div class="col">
+            <div class="card">
+              <img src="{% static 'assets\workoutlib\legs/lehsl.gif' %}" class="card-img-top" alt="...">
+              
+            </div>
+          </div>
+
+  </div>
+
+</section>
+
+<section id="abslib" class="workout selection">
+  <div class="container section-title" data-aos="fade-up">
+      <h2>Available Workout Library</h2>
+      <p>Abs Workout<br></p>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\Abs/absb.gif' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          {% comment %} <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> {% endcomment %}
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\Abs/absc.gif' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\Abs/abse.gif' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\Abs/absg.gif' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Abs/absh.gif' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Abs/absk.gif' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\Abs/absp.gif' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\Abs/absr.gif' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\Abs/abss.gif' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="card">
+              <img src="{% static 'assets\workoutlib\Abs/abst.gif' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+
+  </div>
+
+</section>
+
+<section id="yogalib" class="workout selection">
+  <div class="container section-title" data-aos="fade-up">
+      <h2>Available Workout Library</h2>
+      <p>Yoga Workout<br></p>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\yoga/yogacd.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          {% comment %} <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> {% endcomment %}
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\yoga\yogacl.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\yoga\yogajs.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="{% static 'assets\workoutlib\yoga\yogam.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\yoga\yogarst.jpg' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\yoga\yogass.jpg' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="{% static 'assets\workoutlib\yoga\yogassbs.jpg' %}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\yoga\yogau.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'assets\workoutlib\yoga\yogaut.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="card">
+              <img src="{% static 'assets\workoutlib\yoga\yogavk.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+
+  </div>
+
+</section>
+
+
+ 
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container footer-top">
+        <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 footer-about">
+                <a href="{% url 'home' %}" class="logo d-flex align-items-center">
+                    <span class="sitename">FitGuru</span>
+                </a>
+                <div class="footer-contact pt-3">
+                    <p>A108 Adam Street</p>
+                    <p>New York, NY 535022</p>
+                    <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+                    <p><strong>Email:</strong> <span>info@example.com</span></p>
+                </div>
+                <div class="social-links d-flex mt-4">
+                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-3 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About us</a></li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'worklib' %}">Workout Library</a></li>
+                    <li><a href="{% url 'getyourplan' %}">Get Your Plan</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">FitGuru</strong> <span>All Rights Reserved</span></p>
+        <div class="credits">
+            
+            Designed by YashAdke
+        </div>
+    </div>
+
+</footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
