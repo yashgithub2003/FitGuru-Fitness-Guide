@@ -1,0 +1,40 @@
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Images</title>
+  <style>
+    .img-card {
+      display: inline-block;
+      margin: 10px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border 0.3s ease;
+    }
+
+    .img-card:hover {
+      border: 2px solid blue;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  {% for x in allimgdata %}
+    <label>My id is {{x.phone}}</label><br><br>
+    <img src="{% static 'assets/workoutlib/' %}{{x.imgpath}}" class="card-img-top" alt="...">
+
+  {%  endfor %}
+
+  
+</body>
+</html>

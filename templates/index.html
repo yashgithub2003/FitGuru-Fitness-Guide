@@ -1,0 +1,429 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>FitGuru</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/logo.jpg' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+            <a href="{% url 'home' %}" class="logo d-flex align-items-center me-auto">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <img src="{% static 'assets/img/logo.jpg' %}" alt="">
+
+                <h1 class="sitename">FitGuru</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="{% url 'home' %}" class="active">Home</a></li>
+                    <li class="dropdown"><a href="{% url 'about' %}"><span>About</span> </a>
+                        
+                    </li>
+                    <li><a href="{% url 'services' %}">Services</a></li>
+                    <li><a href="{% url 'worklib' %}">Workout Library</a></li>
+                    <li><a href="{% url 'getyourplan' %}">Get Your Plan</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+            {% if request.session.islogin %}                 
+                <form method="POST" action="{% url 'logout_user' %}">
+                    {% csrf_token %}
+                        <button type="submit" class="btn-getstarted">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'user_login_page' %}">
+                    <button type="button" class="btn-getstarted">Login</button>
+                </a>
+            {% endif %}
+
+
+            <a class="btn-getstarted" href="{% url 'login' %}">Admin Login</a>
+
+        </div>
+    </header>
+
+    <main class="main">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero section dark-background">
+
+            <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+                <div class="carousel-item active">
+                    <img src="{% static 'assets/img/hero-carousel/yoga.jpg' %}" alt="">
+                    <div class="carousel-container">
+                        <h2>Welcome to FitGuru<br></h2>
+                        <p>A peaceful, spacious area in the gym designed for yoga, featuring soft lighting, calming music, and plenty of room for stretching and relaxation.</p>
+                        {% if request.session.islogin %}
+                            <p>Welcome, {{ request.session.user_number }}</p>
+                            <form method="POST" action="{% url 'logout_user' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary py-3 px-5">Logout</button>
+                            </form>
+                        {% else %}
+                            <a href="{% url 'user_login_page' %}">
+                                <button type="button" class="btn btn-primary py-3 px-5">Login</button>
+                            </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <!-- End Carousel Item -->
+
+                <div class="carousel-item">
+                    <img src="{% static 'assets/img/hero-carousel/workout.png' %}" alt="">
+                    <div class="carousel-container">
+                        <h2>Welcome to FitGuru</h2>
+                        <p>A dynamic and well-equipped space in the gym, featuring a variety of machines and free weights for strength training, cardio, and fitness routines.
+                        </p>
+                        <a href="#featured-services" class="btn-get-started">Login</a>
+                    </div>
+                </div>
+                <!-- End Carousel Item -->
+
+                <div class="carousel-item">
+                    <img src="{% static 'assets/img/hero-carousel/changing_room.jpg' %}" alt="">
+                    <div class="carousel-container">
+                        <h2>Welcome to FitGuru</h2>
+                        <p>A clean, spacious changing room in the gym, equipped with lockers, mirrors, and private stalls for comfort and convenience before or after workouts.
+                        </p>
+                        <a href="#featured-services" class="btn-get-started">Login</a>
+                    </div>
+                </div>
+                <!-- End Carousel Item -->
+
+                <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+                </a>
+
+                <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+                </a>
+
+                <ol class="carousel-indicators"></ol>
+
+            </div>
+
+        </section>
+        <!-- /Hero Section -->
+
+        <!-- About Section -->
+        <section id="about" class="about section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>About</h2>
+                <p>About Us<br></p>
+            </div>
+            <!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+                        <p>
+                            Welcome to FitGuru, where fitness meets passion! Our mission is to provide a welcoming, supportive environment where individuals of all fitness levels can achieve their health and wellness goals. Whether you're here to build strength, increase flexibility,
+                            or just improve your overall fitness, our state-of-the-art facilities and expert trainers are dedicated to helping you succeed. </p>
+                        <p>At FitGuru, we offer a variety of fitness programs, including cardio, strength training, yoga, and group classes, all designed to keep you motivated and inspired. Our clean, modern space is equipped with top-notch equipment, and
+                            we take pride in creating a positive, inclusive community where every member feels empowered to reach their potential.</p>
+
+                    </div>
+
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                        <ul>
+                            <li><i class="bi bi-check2-circle"></i> <span>Variety of Classes: A wide range of classes to suit all fitness levels.</span></li>
+                            <li><i class="bi bi-check2-circle"></i> <span>Personalized Fitness Plans: Tailored workout plans to meet your specific goals.</span></li>
+                            <li><i class="bi bi-check2-circle"></i> <span>Dedicated Yoga Area: A peaceful space for yoga and mindfulness.</span></li>
+                        </ul>
+                        <p>Join us today and start your journey to a healthier, stronger you! </p>
+                        <a href="{% url 'about' %}" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- /About Section -->
+
+
+        <!-- Services Section -->
+        <section id="services" class="services section">
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Services</h2>
+                <p>Service Available <br></p>
+            </div>
+            <div class="container">
+                <div class="row gy-4">
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item d-flex position-relative h-100">
+                            <i class="bi bi-briefcase icon flex-shrink-0"></i>
+                            <div>
+                                <h4 class="title"><a href="#" class="stretched-link">Weight Loss</a></h4>
+                                <p class="description">Weight loss at FitGuru is a holistic journey, combining personalized workouts, expert guidance, and nutrition advice to help you achieve sustainable results and feel your best.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Item -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-item d-flex position-relative h-100">
+                            <i class="bi bi-card-checklist icon flex-shrink-0"></i>
+                            <div>
+                                <h4 class="title"><a href="#" class="stretched-link">Weight Gain</a></h4>
+                                <p class="description">Weight gain at FitGuru focuses on building muscle and strength through tailored workouts, proper nutrition, and expert support, helping you achieve healthy and sustainable results.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Item -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-item d-flex position-relative h-100">
+                            <i class="bi bi-bar-chart icon flex-shrink-0"></i>
+                            <div>
+                                <h4 class="title"><a href="#" class="stretched-link">Personal Training</a></h4>
+                                <p class="description">FitGuru's personal training offers one-on-one sessions with expert trainers who create customized workout plans, provide motivation, and ensure you reach your fitness goals effectively and safely.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Item -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-item d-flex position-relative h-100">
+                            <i class="bi bi-binoculars icon flex-shrink-0"></i>
+                            <div>
+                                <h4 class="title"><a href="#" class="stretched-link">Group Training</a></h4>
+                                <p class="description">FitGuru's group training offers energizing, team-oriented workouts led by expert trainers, designed to boost strength, endurance, and motivation in a supportive group environment.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Item -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-item d-flex position-relative h-100">
+                            <i class="bi bi-brightness-high icon flex-shrink-0"></i>
+                            <div>
+                                <h4 class="title"><a href="#" class="stretched-link">Diet Plan</a></h4>
+                                <p class="description">FitGuru’s diet plans are personalized to support your fitness goals, providing balanced, nutritious meals that fuel your body for optimal performance, weight loss, or muscle gain.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Item -->
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service-item d-flex position-relative h-100">
+                            <i class="bi bi-calendar4-week icon flex-shrink-0"></i>
+                            <div>
+                                <h4 class="title"><a href="#" class="stretched-link">Yoga / Zumba</a></h4>
+                                <p class="description">FitGuru’s yoga classes promote flexibility, mindfulness, and relaxation, while our Zumba sessions offer a fun, high-energy workout to boost cardio fitness and burn calories through dance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Service Item -->
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- /Services Section -->
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Gallery</h2>
+                <p>Some Inside Glimpse</p>
+            </div>
+            <!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+
+
+                    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <img src="{% static 'assets/img/masonry-portfolio/treadmil_area.jpg' %}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Treadmil Area</h4>
+                            </div>
+                        </div>
+                        <!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-2.jpg' %}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Product 1</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="{% static 'assets/img/masonry-portfolio/masonry-portfolio-2.jpg' %}" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div>
+                        <!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                            <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-3.jpg' %}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Branding 1</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="{% static 'assets/img/masonry-portfolio/masonry-portfolio-3.jpg' %}" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div>
+                        <!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-4.jpg' %}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>App 2</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="{% static 'assets/img/masonry-portfolio/masonry-portfolio-4.jpg' %}" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div>
+                        <!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-5.jpg' %}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Product 2</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="{% static 'assets/img/masonry-portfolio/masonry-portfolio-5.jpg' %}" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div>
+                        <!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                            <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-6.jpg' %}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Branding 2</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="{% static 'assets/img/masonry-portfolio/masonry-portfolio-6.jpg' %}" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div>
+                        <!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-7.jpg' %}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>App 3</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="{% static 'assets/img/masonry-portfolio/masonry-portfolio-7.jpg' %}" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div>
+                        <!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-8.jpg' %}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Product 3</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="{% static 'assets/img/masonry-portfolio/masonry-portfolio-8.jpg' %}" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div>
+                        <!-- End Portfolio Item -->
+
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                            <img src="{% static 'assets/img/masonry-portfolio/masonry-portfolio-9.jpg' %}" class="img-fluid" alt="">
+                            <div class="portfolio-info">
+                                <h4>Branding 3</h4>
+                                <p>Lorem ipsum, dolor sit</p>
+                                <a href="{% static 'assets/img/masonry-portfolio/masonry-portfolio-9.jpg' %}" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                            </div>
+                        </div>
+                        <!-- End Portfolio Item -->
+
+                    </div>
+                    <!-- End Portfolio Container -->
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- /Portfolio Section -->
+
+    </main>
+
+    <footer id="footer" class="footer dark-background">
+
+    
+
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">FitGuru</strong> <span>All Rights Reserved</span></p>
+            <div class="credits">
+                
+                Designed by YashAdke
+            </div>
+        </div>
+    
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+    <!-- Main JS File -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

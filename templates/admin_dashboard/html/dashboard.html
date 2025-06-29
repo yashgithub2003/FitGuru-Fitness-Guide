@@ -1,0 +1,398 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="keywords"
+      content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template"
+    />
+    <meta
+      name="description"
+      content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework"
+    />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>FitGuru Admin</title>
+
+    <link
+      rel="icon"
+      type="image/jpg"
+      sizes="16x16"
+      href=""{% static 'assets/img/logo.jpg' %}""
+    />
+
+    <link href="{% static 'dashboard/assets/libs/flot/css/float-chart.css' %}" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="{% static 'dashboard/dist/css/style.min.css' %}" rel="stylesheet" />
+
+  </head>
+
+  <body>
+
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+      </div>
+    </div>
+
+    <div
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin5"
+      data-sidebartype="full"
+      data-sidebar-position="absolute"
+      data-header-position="absolute"
+      data-boxed-layout="full"
+    >
+
+      <header class="topbar" data-navbarbg="skin5">
+        <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+          <div class="navbar-header" data-logobg="skin5">
+ 
+            <a class="navbar-brand" href="{% url 'dashboard' %}">
+
+              <b class="logo-icon ps-2">
+                
+                <img
+                  src="{% static 'assets/img/logo.jpg' %}"
+                  alt="homepage"
+                  class="light-logo"
+                  width="25"
+                />
+              </b>
+
+              <span class="logo-text ms-2">
+
+                 <h4 style="padding-top:10px;">FitGuru Dashboard</h4>
+
+
+              </span>
+        
+            </a>
+          
+
+            <a
+              class="nav-toggler waves-effect waves-light d-block d-md-none"
+              href="javascript:void(0)"
+              ><i class="ti-menu ti-close"></i
+            ></a>
+          </div>
+
+          <div
+            class="navbar-collapse collapse"
+            id="navbarSupportedContent"
+            data-navbarbg="skin5">
+
+            <ul class="navbar-nav float-start me-auto">
+              <li class="nav-item d-none d-lg-block">
+                <a
+                  class="nav-link sidebartoggler waves-effect waves-light"
+                  href="javascript:void(0)"
+                  data-sidebartype="mini-sidebar"
+                  ><i class="mdi mdi-menu font-24"></i
+                ></a>
+              </li>
+              
+            </ul>
+
+          </div>
+        </nav>
+      </header>
+  
+      <aside class="left-sidebar" data-sidebarbg="skin5">
+
+        <div class="scroll-sidebar">
+          <nav class="sidebar-nav">
+            <ul id="sidebarnav" class="pt-4">
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{% url 'dashboard' %}"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-view-dashboard"></i
+                  ><span class="hide-menu">Dashboard</span></a
+                >
+              </li>
+              <li class="sidebar-item">
+                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{% url 'alluser' %}"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-chart-bar"></i
+                  ><span class="hide-menu">Unverified Clients</span></a>
+              </li>
+              <li class="sidebar-item">
+                <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{% url 'adduser' %}"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-chart-bar"></i
+                  ><span class="hide-menu">Verified Client</span></a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{% url 'modifyuser' %}"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-chart-bubble"></i
+                  ><span class="hide-menu">Modify User</span></a
+                >
+              </li>
+              
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{% url 'precustomplan' %}"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-blur-linear"></i
+                  ><span class="hide-menu">Customize Workout Plan </span></a
+                >
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{% url 'feedbacks' %}"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-blur-linear"></i
+                  ><span class="hide-menu">Feedbacks </span></a
+                >
+              </li>
+              
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{% url 'logout' %}"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-relative-scale"></i
+                  ><span class="hide-menu">Logout</span></a
+                >
+              </li>
+              
+          </nav>
+          <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+      </aside>
+
+
+      <div class="page-wrapper">
+
+        <div class="page-breadcrumb">
+          <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+              <h4 class="page-title">Dashboard</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid" style="min-height:30vh;">
+    
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+     
+                  <div class="row">
+
+                    </div>
+                    <div class="row text-center">
+                      <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="bg-dark p-4 text-white rounded">
+                          <i class="mdi mdi-account fs-3 mb-2"></i>
+                          <h5 class="mb-0">{{ totaluser }}</h5>
+                          <small class="font-light">Total Users</small>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="bg-dark p-4 text-white rounded">
+                          <i class="mdi mdi-plus fs-3 mb-2"></i>
+                          <h5 class="mb-0">{{ countfeedback }}</h5>
+                          <small class="font-light">Total Feedbacks</small>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="bg-dark p-4 text-white rounded">
+                          <i class="mdi mdi-cart fs-3 mb-2"></i>
+                          <h5 class="mb-0">{{ totalcustplan }}</h5>
+                          <small class="font-light">Total Customize Plan Users</small>
+                        </div>
+                      </div>
+                     
+                    </div>
+                    
+                    
+                    <!-- column -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- column -->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Latest Feedbacks</h4>
+                </div>
+                <div class="comment-widgets scrollable">
+
+                  {% for i in last_five_enquiries %}
+                
+                    <div class="d-flex flex-row comment-row mt-0">
+                    <div class="p-2">
+                      <img
+                        src="{% static 'dashboard/assets/images/users/1.jpg' %}"
+                        alt="user"
+                        width="50"
+                        class="rounded-circle"
+                      />
+                    </div>
+                    <div class="comment-text w-100">
+                      <h6 class="font-medium">{{ i.name }}</h6>
+                      <span class="mb-3 d-block"
+                        >{{ i.message }}
+                      </span>
+                    </div>
+                    </div>
+                  {% endfor %}
+                 
+                  
+                </div>
+              </div>
+              
+            </div>
+            <!-- column -->
+
+            <div class="col-lg-6">
+              <!-- Card -->
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Chat Option</h4>
+                  <div class="chat-box scrollable" style="height: 475px">
+
+                    <ul class="chat-list">
+
+                      <li class="chat-item">
+                        <div class="chat-img">
+                          <img src="{% static 'dashboard/assets/images/users/1.jpg' %}" alt="user" />
+                        </div>
+                        <div class="chat-content">
+                          <h6 class="font-medium">James Anderson</h6>
+                          <div class="box bg-light-info">
+                            Lorem Ipsum is simply dummy text of the printing
+                            &amp; type setting industry.
+                          </div>
+                        </div>
+                        <div class="chat-time">10:56 am</div>
+                      </li>
+
+                      <li class="chat-item">
+                        <div class="chat-img">
+                          <img src="{% static 'dashboard/assets/images/users/2.jpg' %}" alt="user" />
+                        </div>
+                        <div class="chat-content">
+                          <h6 class="font-medium">Bianca Doe</h6>
+                          <div class="box bg-light-info">
+                            It’s Great opportunity to work.
+                          </div>
+                        </div>
+                        <div class="chat-time">10:57 am</div>
+                      </li>
+
+                      <li class="odd chat-item">
+                        <div class="chat-content">
+                          <div class="box bg-light-inverse">
+                            I would love to join the team.
+                          </div>
+                          <br />
+                        </div>
+                      </li>
+
+                      <li class="odd chat-item">
+                        <div class="chat-content">
+                          <div class="box bg-light-inverse">
+                            Whats budget of the new project.
+                          </div>
+                          <br />
+                        </div>
+                        <div class="chat-time">10:59 am</div>
+                      </li>
+
+                      <li class="chat-item">
+                        <div class="chat-img">
+                          <img src="{% static 'dashboard/assets/images/users/3.jpg' %}" alt="user" />
+                        </div>
+                        <div class="chat-content">
+                          <h6 class="font-medium">Angelina Rhodes</h6>
+                          <div class="box bg-light-info">
+                            Well we have good budget for the project
+                          </div>
+                        </div>
+                        <div class="chat-time">11:00 am</div>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body border-top">
+                  <div class="row">
+                    <div class="col-9">
+                      <div class="input-field mt-0 mb-0">
+                        <textarea
+                          id="textarea1"
+                          placeholder="Type and enter"
+                          class="form-control border-0"
+                        ></textarea>
+                      </div>
+                    </div>
+                    <div class="col-3">
+                      <a
+                        class="btn-circle btn-lg btn-cyan float-end text-white"
+                        href="javascript:void(0)"
+                        ><i class="mdi mdi-send fs-3"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+           
+            </div>
+          </div>
+
+        </div>
+
+        <footer class="footer text-center">
+          All Rights Reserved by FitGuru Fitness Guide. 
+        </footer>
+
+      </div>
+
+    </div>
+
+    <script src="{% static 'dashboard/assets/libs/jquery/dist/jquery.min.js' %}"></script>
+
+    <script src="{% static 'dashboard/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js' %}"></script>
+    <script src="{% static 'dashboard/assets/extra-libs/sparkline/sparkline.js' %}"></script>
+
+    <script src="{% static 'dashboard/dist/js/waves.js' %}"></script>
+
+    <script src="{% static 'dashboard/dist/js/sidebarmenu.js' %}"></script>
+
+    <script src="{% static 'dashboard/dist/js/custom.min.js' %}"></script>
+ 
+    <script src="{% static 'dashboard/assets/libs/flot/excanvas.' %}js"></script>
+    <script src="{% static 'dashboard/assets/libs/flot/jquery.flot.js' %}"></script>
+    <script src="{% static 'dashboard/assets/libs/flot/jquery.flot.pie.js' %}"></script>
+    <script src="{% static 'dashboard/assets/libs/flot/jquery.flot.time.js' %}"></script>
+    <script src="{% static 'dashboard/assets/libs/flot/jquery.flot.stack.js' %}"></script>
+    <script src="{% static 'dashboard/assets/libs/flot/jquery.flot.crosshair.js' %}"></script>
+    <script src="{% static 'dashboard/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+    <script src="{% static 'dashboard/dist/js/pages/chart/chart-page-init.js' %}"></script>
+  </body>
+</html>

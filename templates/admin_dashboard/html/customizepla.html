@@ -1,0 +1,498 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Images</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .image-box {
+      background: white;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .image-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .checkbox-label {
+      display: block;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  {% comment %} {% for x in messages %}
+  <center>
+  <h5> 
+  
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+       <strong style="color:green;">{{x}}</strong>
+      <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+                      
+  </h5>
+  </center>
+{% endfor %} {% endcomment %}
+
+
+  <h2>Select Your Images:</h2>
+  {% for x in information %}  
+  <form method="POST" action="{% url 'customplan' %}">
+    {% csrf_token %}
+    
+    <div class="form-group">
+        <label for="contact_no">Contact Number:</label>
+        <input type="text" id="contact_no" name="contact_no" value="{{x.phone}}" required>
+    </div>
+    <br>
+    <h3>Chest Workout</h3>
+    <div class="grid-container">
+      
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\chest/chestbbp.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="chest[]" value="chest/chestbbp.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\chest/chestd.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="chest[]" value="chest/chestd.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\chest/chestdbp.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="chest[]" value="chest/chestdbp.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\chest/chestdp.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="chest[]" value="chest/chestdp.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\chest/chestdpo.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="chest[]" value="chest/chestdpo.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\chest/chestf.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="chest[]" value="chest/chestf.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\chest/chestibp.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="chest[]" value="chest/chestibp.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\chest/Chestmcp.gif' %}" alt="Image 2">
+        <label class="checkbox-label">
+          <input type="checkbox" name="chest[]" value="chest/Chestmcp.gif"> Select
+        </label>
+      </div>
+  
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\chest/chestmf.gif' %}" alt="Image 3">
+        <label class="checkbox-label">
+          <input type="checkbox" name="chest[]" value="chest/chestmf.gif"> Select
+        </label>
+      </div>
+  
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\chest/chestpu.gif' %}" alt="Image 4">
+        <label class="checkbox-label">
+          <input type="checkbox" name="chest[]" value="chest/chestpu.gif"> Select
+        </label>
+      </div>
+  
+      <!-- Add more images if needed -->
+    </div>
+
+    <h3>Triceps Workout</h3>
+    <div class="grid-container">
+      
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Triceps/tricepsbd.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="triceps[]" value="Triceps/tricepsbd.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Triceps/tricepscgbp.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="triceps[]" value="Triceps/tricepscgbp.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Triceps/tricepscgpu.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="triceps[]" value="Triceps/tricepscgpu.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Triceps/tricepscoewr.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="triceps[]" value="Triceps/tricepscoewr.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Triceps/tricepscpd.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="triceps[]" value="Triceps/tricepscpd.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Triceps/tricepsdote.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="triceps[]" value="Triceps/tricepsdote.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Triceps/tricepss.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="triceps[]" value="Triceps/tricepss.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Triceps/tricepssackb.gif' %}" alt="Image 2">
+        <label class="checkbox-label">
+          <input type="checkbox" name="triceps[]" value="Triceps/tricepssackb.gif"> Select
+        </label>
+      </div>
+  
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Triceps/tricepstd.gif' %}" alt="Image 3">
+        <label class="checkbox-label">
+          <input type="checkbox" name="triceps[]" value="Triceps/tricepstd.gif"> Select
+        </label>
+      </div>
+  
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Triceps/tricepstmd.gif' %}" alt="Image 4">
+        <label class="checkbox-label">
+          <input type="checkbox" name="triceps[]" value="Triceps/tricepstmd.gif"> Select
+        </label>
+      </div>
+  
+      <!-- Add more images if needed -->
+    </div>
+
+    <h3>Shoulder Workout</h3>
+    <div class="grid-container">
+      
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Shoulder/shoulderbodlr.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="shoulder[]" value="Shoulder/shoulderbodlr.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Shoulder/shoulderbosp.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="shoulder[]" value="Shoulder/shoulderbosp.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Shoulder/shouldercfp.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="shoulder[]" value="Shoulder/shouldercfp.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Shoulder/shoulderdlr.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="shoulder[]" value="Shoulder/shoulderdlr.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Shoulder/shoulderdosp.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="shoulder[]" value="Shoulder/shoulderdosp.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Shoulder/shoulderfr.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="shoulder[]" value="Shoulder/shoulderfr.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Shoulder/shoulderoaclr.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="shoulder[]" value="Shoulder/shoulderoaclr.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Shoulder/shoulderrcc.gif' %}" alt="Image 2">
+        <label class="checkbox-label">
+          <input type="checkbox" name="shoulder[]" value="Shoulder/shoulderrcc.gif"> Select
+        </label>
+      </div>
+  
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Shoulder/shoulderrpdf.gif' %}" alt="Image 3">
+        <label class="checkbox-label">
+          <input type="checkbox" name="shoulder[]" value="Shoulder/shoulderrpdf.gif"> Select
+        </label>
+      </div>
+  
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Shoulder/shoulderbodlr.gif' %}" alt="Image 4">
+        <label class="checkbox-label">
+          <input type="checkbox" name="shoulder[]" value="Shoulder/shoulderbodlr.gif"> Select
+        </label>
+      </div>
+  
+      <!-- Add more images if needed -->
+    </div>
+
+    <h3>Back Workout</h3>
+    <div class="grid-container">
+      
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\back/backboor.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="back[]" value="back/backboor.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\back/backcsr.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="back[]" value="back/backcsr.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\back/backdl.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="back[]" value="back/backdl.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\back/backdpo.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="back[]" value="back/backdpo.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\back/backlpd.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="back[]" value="back/backlpd.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\back/backpu.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="back[]" value="back/backpu.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\back/backsadr.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="back[]" value="back/backsadr.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\back/backsasmr.gif' %}" alt="Image 2">
+        <label class="checkbox-label">
+          <input type="checkbox" name="back[]" value="back/backsasmr.gif"> Select
+        </label>
+      </div>
+  
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\back/backsr.gif' %}" alt="Image 3">
+        <label class="checkbox-label">
+          <input type="checkbox" name="back[]" value="back/backsr.gif"> Select
+        </label>
+      </div>
+  
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\back/backtbr.gif' %}" alt="Image 4">
+        <label class="checkbox-label">
+          <input type="checkbox" name="back[]" value="back/backtbr.gif"> Select
+        </label>
+      </div>
+  
+      <!-- Add more images if needed -->
+    </div>
+
+    <h3>Biceps Workout</h3>
+    <div class="grid-container">
+      
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepscc.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="biceps[]" value="Biceps/bicepscc.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepscon.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="biceps[]" value="Biceps/bicepscon.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepscu.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="biceps[]" value="Biceps/bicepscu.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepsdc.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="biceps[]" value="Biceps/bicepsdc.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepsdrc.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="biceps[]" value="Biceps/bicepsdrc.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepsez.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="biceps[]" value="Biceps/bicepsez.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepshc.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="biceps[]" value="Biceps/bicepshc.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepsrgbr.gif' %}" alt="Image 2">
+        <label class="checkbox-label">
+          <input type="checkbox" name="biceps[]" value="Biceps/bicepsrgbr.gif"> Select
+        </label>
+      </div>
+  
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Biceps/Bicepsic.gif' %}" alt="Image 3">
+        <label class="checkbox-label">
+          <input type="checkbox" name="biceps[]" value="Biceps/Bicepsic.gif"> Select
+        </label>
+      </div>
+  
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\Biceps/bicepspc.gif' %}" alt="Image 4">
+        <label class="checkbox-label">
+          <input type="checkbox" name="biceps[]" value="Biceps/bicepspc.gif"> Select
+        </label>
+      </div>
+  
+      <!-- Add more images if needed -->
+    </div>
+
+    <h3>Legs Workout</h3>
+    <div class="grid-container">
+      
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\legs/legsbbs.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="legs[]" value="legs/legsbbs.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\legs/legsbfs.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="legs[]" value="legs/legsbfs.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\legs/legsdl.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="legs[]" value="legs/legsdl.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\legs/legshs.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="legs[]" value="legs/legshs.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\legs/legslc.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="legs[]" value="legs/legslc.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\legs/legslp.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="legs[]" value="legs/legslp.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\legs/legsol.gif' %}" alt="Image 1">
+        <label class="checkbox-label">
+          <input type="checkbox" name="legs[]" value="legs/legsol.gif"> Select
+        </label>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\legs/legsrd.gif' %}" alt="Image 2">
+        <label class="checkbox-label">
+          <input type="checkbox" name="legs[]" value="legs/legsrd.gif"> Select
+        </label>
+      </div>
+  
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\legs/legsss.gif' %}" alt="Image 3">
+        <label class="checkbox-label">
+          <input type="checkbox" name="legs[]" value="legs/legsss.gif"> Select
+        </label>
+      </div>
+  
+      <div class="image-box">
+        <img src="{% static 'assets\workoutlib\legs/lehsl.gif' %}" alt="Image 4">
+        <label class="checkbox-label">
+          <input type="checkbox" name="legs[]" value="legs/lehsl.gif"> Select
+        </label>
+      </div>
+  
+      <!-- Add more images if needed -->
+    </div>
+    
+    
+    
+    
+    
+    
+    <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+      <button type="submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px;">
+        Submit
+      </button>
+    </div>  </form>
+    {% endfor %}
+
+  
+
+</body>
+</html>

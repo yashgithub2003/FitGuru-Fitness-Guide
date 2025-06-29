@@ -1,0 +1,126 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>FitGuru</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <link href="{% static 'assets/img/logo.jpg' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+
+
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    
+            <a href="{% url 'home' %}" class="logo d-flex align-items-center me-auto">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <img src="{% static 'assets/img/logo.jpg' %}" alt="">
+    
+                <h1 class="sitename">FitGuru</h1>
+            </a>
+    
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="{% url 'home' %}" >Home</a></li>
+                    <li class="dropdown"><a href="{% url 'about' %}" ><span>About</span> </a>
+                        
+                    </li>
+                    <li><a href="{% url 'services' %}" >Services</a></li>
+                    <li><a href="{% url 'worklib' %}">Workout Library</a></li>
+                    <li><a href="{% url 'getyourplan' %}">Get Your Plan</a></li>
+                    <li><a href="{% url 'contact' %}" >Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+            {% if request.session.islogin %}                 
+                <form method="POST" action="{% url 'logout_user' %}">
+                    {% csrf_token %}
+                        <button type="submit" class="btn-getstarted">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'user_login_page' %}">
+                    <button type="button" class="btn-getstarted">Login</button>
+                </a>
+            {% endif %}
+    
+    
+            <a class="btn-getstarted" href="{% url 'login' %}"  >Admin Login</a>
+    
+        </div>
+    </header>
+
+    <main class="main">
+        {% if message %}
+        <div style="padding: 10px; margin-bottom: 15px; border-radius: 5px; color: white; background-color: {% if status == 'error' %}#e74c3c{% else %}#2ecc71{% endif %}; ">
+            {{ message }}
+        </div>
+        {% endif %}
+
+
+        <form action="{% url 'reg_home' %}" method="POST" name="reg_form">
+
+            {% csrf_token %}
+            <div class="reg_container">
+                <h2>Registration form</h2>
+                <div class="reg_field">
+                    <input type = "text" placeholder = "Enter Your Full Name" name = "name">
+                    <input type = "text" placeholder = "Enter Your Email" name = "email">
+                    <input type = "text" placeholder = "Enter Your Contact Number" name = "number">
+                    <input type = "text" placeholder = "Enter Your Password" name = "password">
+                    <input type = "text" placeholder = "Enter Your Gender" name = "gender">
+                    <input type = "text" placeholder = "Enter Your Date of Birth" name = "dob">
+                    <input type="submit" value="Register" class="btn btn-primary py-3 px-5" name="submit">
+                    <p>Once You Register within 24 hours we verifies your profile. After that you can try to login.</p>
+                </div>
+                
+
+
+            </div>
+            
+            
+          </form>
+
+       
+    </main>
+
+    <footer id="footer" class="footer dark-background">
+
+    
+
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">FitGuru</strong> <span>All Rights Reserved</span></p>
+            <div class="credits">
+                
+                Designed by YashAdke
+            </div>
+        </div>
+    
+    </footer>
+
